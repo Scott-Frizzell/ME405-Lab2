@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lab2: encoder_reader.Encoder Class Reference</title>
+<title>ME 405 Lab 2: encoder_reader.Encoder Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,9 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lab2
+   <div id="projectname">ME 405 Lab 2<span id="projectnumber">&#160;1.0.0</span>
    </div>
-   <div id="projectbrief">Reads the absolute position of a quadrature encoder.</div>
+   <div id="projectbrief">Implements a quadrature encoder wrapper class</div>
   </td>
  </tr>
  </tbody>
@@ -100,7 +100,7 @@ $(function(){initNavTree('classencoder__reader_1_1_encoder.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 
-<p>This class implements a quadrature encoder.  
+<p>This class wraps a quadrature encoder.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -109,10 +109,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a60e572181ea576293c81c7dd7085eaeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an encoder driver and initalizes both it and a timer used in updating its position.  <br /></td></tr>
 <tr class="separator:a60e572181ea576293c81c7dd7085eaeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b5ad086c21a7c4c0fdcc7977b596092" id="r_a0b5ad086c21a7c4c0fdcc7977b596092"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b5ad086c21a7c4c0fdcc7977b596092">read</a> (self)</td></tr>
-<tr class="memdesc:a0b5ad086c21a7c4c0fdcc7977b596092"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the current absolute position of the encoder.  <br /></td></tr>
+<tr class="memdesc:a0b5ad086c21a7c4c0fdcc7977b596092"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the signed, absolute position of the encoder.  <br /></td></tr>
 <tr class="separator:a0b5ad086c21a7c4c0fdcc7977b596092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f0013ab8cd7010afd07096840604a03" id="r_a4f0013ab8cd7010afd07096840604a03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f0013ab8cd7010afd07096840604a03">zero</a> (self)</td></tr>
-<tr class="memdesc:a4f0013ab8cd7010afd07096840604a03"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method sets current position to zero.  <br /></td></tr>
+<tr class="memdesc:a4f0013ab8cd7010afd07096840604a03"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method resets the stored position to zero, synchronizing it with the current motor position.  <br /></td></tr>
 <tr class="separator:a4f0013ab8cd7010afd07096840604a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa80c7214bf667cf33bac80393e772874" id="r_aa80c7214bf667cf33bac80393e772874"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa80c7214bf667cf33bac80393e772874">update</a> (self, timer)</td></tr>
 <tr class="memdesc:aa80c7214bf667cf33bac80393e772874"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method updates the position of the encoder, accounting for any overflows.  <br /></td></tr>
@@ -134,7 +134,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:adc1abb5da39328fa092b6482a9b15c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class implements a quadrature encoder. </p>
+<div class="textblock"><p>This class wraps a quadrature encoder. </p>
+<p>It updates ever 10ms and stores the signed offset from its starting position. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a60e572181ea576293c81c7dd7085eaeb" name="a60e572181ea576293c81c7dd7085eaeb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60e572181ea576293c81c7dd7085eaeb">&#9670;&#160;</a></span>__init__()</h2>
@@ -194,7 +195,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This method returns the current absolute position of the encoder. </p>
+<p>This method returns the signed, absolute position of the encoder. </p>
 <dl class="section return"><dt>Returns</dt><dd>position </dd></dl>
 
 </div>
@@ -244,7 +245,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This method sets current position to zero. </p>
+<p>This method resets the stored position to zero, synchronizing it with the current motor position. </p>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
