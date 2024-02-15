@@ -1,13 +1,13 @@
 """! 
 @file encoder_reader.py
-Reads absolute position of quadrature encoder.
+This file implements a wrapper class for a quadrature encoder.
 """
 import time
 import pyb
 
 class Encoder:
     """! 
-    This class implements a quadrature encoder.
+    This class wraps a quadrature encoder. It updates ever 10ms and stores the signed offset from its starting position.
     """    
     def __init__ (self, in1pin, in2pin, timer):
         """! 
@@ -31,14 +31,14 @@ class Encoder:
         
     def read(self):
         """!
-        This method returns the current absolute position of the encoder.
+        This method returns the signed, absolute position of the encoder.
         @returns position
         """
         return self.value
     
     def zero(self):
         """!
-        This method sets current position to zero.
+        This method resets the stored position to zero, synchronizing it with the current motor position.
         @returns None
         """
         self.value = 0
